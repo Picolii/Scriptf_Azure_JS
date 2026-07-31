@@ -1,0 +1,1 @@
+# Scriptf_CopiarTask_Azure
