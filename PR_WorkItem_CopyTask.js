@@ -15,10 +15,6 @@
   ].join(',');
 
   function iniciar() {
-    if (!/\/pullrequest\/\d+/i.test(location.pathname)) {
-      return;
-    }
-
     agendarInstalacao();
 
     const observer = new MutationObserver(() => {
@@ -44,6 +40,11 @@
   }
 
   function instalarBotoes() {
+    if (!/\/pullrequest\/\d+/i.test(location.pathname)) {
+      ocultarTooltip();
+      return;
+    }
+
     const links = Array.from(document.querySelectorAll(SELETOR_LINK));
 
     for (const link of links) {
